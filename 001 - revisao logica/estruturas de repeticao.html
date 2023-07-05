@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estruturas de repeticao</title>
+
+    <!-- 
+        
+    HTML script tag can have 2 tags:
+
+    async: loads the scripts asynchronously. they load with no specific order between themselves
+    and can load before the page load.
+
+    defer: loads scripts in order, but while still loading HTML and CSS objects (scripts are ordered
+    between themselves, but asynchronous in relation to HTML and CSS). Signals to the browser to
+    only execute the loaded scripts after the Document is properly loaded.
+
+    -->
+    <script defer>
+
+        // For, While e Do while
+        // Loopings podem ser manipulados com break e continue:
+
+        // quando o break é alcançado, o interpretador sai do looping.
+
+        // quando continue é alcançado, o interpretador interrompe a interação e vai pra próxima,
+        // mas ainda no mesmo looping.
+
+        let number = prompt("Digite um número")
+
+        // While
+        let indice = 0
+        while (indice < 10) {
+            document.write(`${++indice} x ${number} = ${indice * number} <br>`)
+        }
+
+        document.write("<br>")
+
+        // Do while (diferente do while, executa ao menos uma vez, mesmo se false.)
+
+        do {
+            document.write(`${++indice} x ${number} = ${indice * number} <br>`)
+        } while (indice < 10)
+
+        document.write("<br>")
+
+        // For
+        for (let i = 1; i <= 10; i++)
+            document.write(`${i} x ${number} = ${i * number} <br>`)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

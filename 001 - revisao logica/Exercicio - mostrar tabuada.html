@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+
+    <button onclick="mostrarTabuada()">Mostrar tabuada</button>
+    <button onclick="limparTabuada()">Limpar tabuada</button>
+    <div id="tabuada"></div>
+
+    <script defer>
+
+        const tabuadaDiv = document.getElementById("tabuada")
+
+        function mostrarTabuada() {
+
+            let text = ""
+
+            let number = prompt("Digite um número");
+
+            for (let i = 1; i <= 1000; i++)
+                text += `${i} x ${number} = ${i * number} <br>`
+
+            tabuadaDiv.innerHTML = text
+        }
+
+        function limparTabuada() {
+            tabuadaDiv.innerHTML = ""
+        }
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

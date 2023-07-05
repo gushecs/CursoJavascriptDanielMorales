@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            background-color: aqua;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button id="btn1">button 1</button>
+        <button id="btn2">button 2</button>
+        <button id="btn3">button 3</button>
+    </div>
+
+    <script>
+        /* Uma coisa a se ter em mente é que eventos podem ser delegados ao elemento pai e acionados
+        pelo elemento filho. Essa possibilidade é interessante para evitar a recriação de listeners
+        e toda utilização de poder de processamento associada ao processo, sempre que possível. */
+
+        const container = document.querySelector(".container")
+        container.addEventListener("click", (event) => {
+            // o if faz com que o log só exista para cliques no botão (e não no container)
+            if (event.target.nodeName === "BUTTON")
+                console.log(event.target)
+        })
+
+        /* Para efeitos de delegação de funções, vale ressaltar a diferença entre as propriedades
+        "target" e "currentTarget". "target" aponta para o elemento em que houve a iteração. O
+        "currentTarget" aponta sempre para o objeto que recebeu a função (no caso acima, o container) */
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcoes</title>
+
+    <script defer>
+
+        // Declaração de função
+        function ola() {
+            document.write("Olá mundo!")
+        }
+
+        ola()
+
+        // Function expression
+        const ola2 = function() {
+            console.log("function expression")
+        }
+        ola2()
+
+        // Arrow functions
+        const ola3 = () => {
+            console.log("arrow function")  
+        }
+        ola3()
+
+        // Retornando valores de uma function
+        function obtemDiaDaSemana() {
+            return new Date().getDay()
+        }
+        let dia = obtemDiaDaSemana()
+        document.write(dia)
+
+        // Passando valores para uma função
+        function somar(n1 = 0, n2 = 0) { // você pode por valores padrão, para caso de ausência
+            return n1 + n2
+        }
+        document.write(somar(3, 5))
+        document.write(somar(1, 2, 3))
+        // O Javascript ignora argumentos a mais que você passe
+        document.write(somar(4))
+        // O Javascript passa argumentos ausentes como undefined
+
+    </script>
+</head>
+<body>
+    <h1>Funcoes</h1><br>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btn1">button 1</button>
+    <button id="btn2">button 2</button>
+    <button id="btn3">button 3</button>
+
+    <script>
+        // Iterações com elementos html com frequencia geram eventos, que podem ser ligados à
+        // funções JS. As funções e eventos podem ser atrelados de diferentes formas:
+
+        // Ligação de DOM level 0 (usando onClick):
+        // desvantagem -> o elemento só pode ter uma função
+        const btn1 = document.getElementById("btn1")
+
+        function clicou() {
+            console.log("button pressed and \"clicou\" executed.")
+        }
+
+        btn1.onclick = () => console.log("button 1 pressed and arrow function executed")
+
+        btn1.onclick = clicou
+
+        // Nesse exemplo, "clicou" sobrescreve a arrow function.
+
+        // Ligação de DOM level 2 (mais moderno):
+        // duas funções podem ser inscritas em um mesmo evento
+        const btn2 = document.getElementById("btn2")
+
+        btn2.addEventListener("click", () => console.log("button 2 pressed and arrow function executed"))
+
+        btn2.addEventListener("click", clicou)
+
+        // Nesse exemplo, "clicou" convive com a arrow function.
+    </script>
+</body>
+</html>
