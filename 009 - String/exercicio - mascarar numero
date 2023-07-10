@@ -1,0 +1,12 @@
+let telefone1 = "91234-2345"
+let telefone2 = "1234-2345"
+
+function mascararTelefone(numero) {
+    let numberStart = numero.slice(0, 1)
+    let numberEnd = numero.slice(-2)
+    let numberMiddle = numero.slice(1, -2).replaceAll(/\w/g, "*")
+    return numberStart + numberMiddle + numberEnd
+}
+
+console.log(mascararTelefone(telefone1))
+console.log(mascararTelefone(telefone2))
