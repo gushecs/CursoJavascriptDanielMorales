@@ -1,9 +1,10 @@
 function formatarNome(nomeCompleto) {
-    nomeCompleto = nomeCompleto.trim()
-    let firstSpace = nomeCompleto.indexOf(" ")
-    if (firstSpace != -1)
-        return nomeCompleto.slice(firstSpace + 1) + ", " + nomeCompleto.slice(0, firstSpace)
-    return nomeCompleto
+    let names = nomeCompleto.trim().split(" ")
+    let firstName = names.shift()
+    if (names.length >= 1) {
+        return names.join(" ") + ", " + firstName
+    }
+    return firstName
 }
 
 console.log(formatarNome("Gustavo"))
