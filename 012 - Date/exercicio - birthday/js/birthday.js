@@ -1,48 +1,17 @@
-const daysPerMonth = {
-    1:  31,
-    2:  28,
-    3:  31,
-    4:  30,
-    5:  31,
-    6:  30,
-    7:  31,
-    8:  31,
-    9:  30,
-    10: 31,
-    11: 30,
-    12: 31
-}
-
-const currentDate = new Date()
-const currentDay = currentDate.getDate()
-const currentMonth = currentDate.getMonth() + 1
-
-const daysLeftThisMonth = daysPerMonth[currentMonth] - currentDay
+let currentDate = new Date()
+currentDate.setHours(0)
+currentDate.setMinutes(0)
+currentDate.setSeconds(0)
+currentDate.setMilliseconds(0)
+const currentYear = currentDate.getFullYear()
+const one_day = 24 * 60 * 60 * 1000
 
 function quantoFaltaPara(birthdayMonth, birthdayDay) {
 
-    birthdayDay = parseInt(birthdayDay)
-    birthdayMonth = parseInt(birthdayMonth)
+    let birthdayDate = new Date(currentYear, birthdayMonth - 1, birthdayDay)
 
-    if (birthdayMonth == currentMonth && birthdayDay >= currentDay)
-        return birthdayDay - currentDay
-    
-    let monthsBetween = []
+    if (birthdayDate < currentDate)
+        birthdayDate.setFullYear(birthdayDate.getFullYear() + 1)
 
-    if (birthdayMonth > currentMonth) {
-        for (let i = currentMonth + 1; i < birthdayMonth; i++) {
-            monthsBetween.push(i)
-        }
-    } else {
-        for (let i = currentMonth + 1; i <= 12; i++) {
-            monthsBetween.push(i)
-        }
-        for (let i = 1; i < birthdayMonth; i++) {
-            monthsBetween.push(i)
-        }
-    }
-
-    let daysInMonthsBetween = monthsBetween.map((month) => daysPerMonth[month])
-
-    return daysLeftThisMonth + daysInMonthsBetween.reduce((allDays, monthDays) => allDays += monthDays) + birthdayDay
+    return (birthdayDate.getTime() - currentDate.getTime()) / one_day
 }
